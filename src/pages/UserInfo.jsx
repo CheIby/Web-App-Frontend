@@ -6,11 +6,9 @@ import { setCookie,getCookie } from 'cookies-next';
 function UserInfo() {
     const token = getCookie("userInfoToken")
   
-    
-  
     const [selectedImage, setSelectedImage] = useState(null);
    
-  
+
     const submitImg= async()=>{
       const formData = new FormData();
       formData.append('Image', selectedImage);
@@ -22,10 +20,15 @@ function UserInfo() {
   
   {selectedImage && (
     <div>
+      {selectedImage!=null?<img
+        alt="not found"
+        width={"250px"}
+        src={window.URL.createObjectURL(selectedImage)}
+      />:<img/>}
       <img
         alt="not found"
         width={"250px"}
-        src={URL.createObjectURL(selectedImage)}
+        src="null."
       />
       <br />
       <button onClick={() => setSelectedImage(null)}>Remove</button>
@@ -46,39 +49,39 @@ function UserInfo() {
   <button onClick={submitImg}>submit</button>  
       </div>
     );
-    const [userInfo,setUserInfo]=useState(null)
+  //   const [userInfo,setUserInfo]=useState(null)
     
   
-      const fetchData =async()=>{
-          await axios.get("https://localhost:7135/api/User/GetUserInfoToken/42d8e9a7-9853-434d-a64e-4b3b310195c3").then(e=>{
-            const token =  e.data.token
-            setCookie("userInfoToken",token,{
-                    maxAge:7*24*60*60,
-                    path:'/',
-                    sameSite:'strict',
-                    secure:true
-            })
-          }   
-          )
-      }
+  //     const fetchData =async()=>{
+  //         await axios.get("https://localhost:7135/api/User/GetUserInfoToken/42d8e9a7-9853-434d-a64e-4b3b310195c3").then(e=>{
+  //           const token =  e.data.token
+  //           setCookie("userInfoToken",token,{
+  //                   maxAge:7*24*60*60,
+  //                   path:'/',
+  //                   sameSite:'strict',
+  //                   secure:true
+  //           })
+  //         }   
+  //         )
+  //     }
       
-      useEffect(() => {
-          // fetchData()
-          if (token!=null){
-            setUserInfo(jwt_decode(token))
-          }
+  //     useEffect(() => {
+  //         // fetchData()
+  //         if (token!=null){
+  //           setUserInfo(jwt_decode(token))
+  //         }
           
-        },[]);
+  //       },[]);
   
       
-    return (
-      <div>
-          {/* {token?setUserInfo(jwt_decode(token)):""} */}
-          {JSON.stringify(userInfo)}
-          {userInfo==null?"":<img src={`https://localhost:7135/static/${userInfo.UserImg}`} alt="" />}
+  //   return (
+  //     <div>
+  //         {/* {token?setUserInfo(jwt_decode(token)):""} */}
+  //         {JSON.stringify(userInfo)}
+  //         {userInfo==null?"":<img src={`https://localhost:7135/static/${userInfo.UserImg}`} alt="" />}
           
-      </div>
-    )
-  }
-
-export default UserInfo
+  //     </div>
+  //   )
+  // }
+}
+export default UserInfo;

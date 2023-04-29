@@ -34,16 +34,15 @@ export const MyOrderListBox = () => {
             </div>
             <div className='flex flex-col items-center mb-8'>
                 {allOrder.length===0?
-                <div className='w-full h-20 bg-opacity-30 p-7 font-Kanit'>
-                    <h2>Your order list is currently empty.</h2>
+                <div className='w-full h-20 p-7 font-Kanit relative'>
+                    <h2>Your order list is currently empty.</h2> 
                 </div>:
-                <div className='bg-[#746f6f] w-full rounded-lg flex flex-col items-center bg-opacity-30'>
-                    {allOrder.map((e,key)=>{
+                allOrder.map((e,key)=>{
                     return(
-                        <OrderCard key={key} img={e.restaurant} restaurant={e.restaurant} detail={e.detail} receiveLocation={e.receiveLocation} userId={e.userId} username={e.username} total={e.ifDoneScore} status={e.isTaken} orderId={e.orderId}/>
+                        <OrderCard key={key} img={e.restaurant} restaurant={e.restaurant} detail={e.detail} receiveLocation={e.receiveLocation} userTel={e.userTel} userId={e.userId} username={e.username} total={e.ifDoneScore} status={e.isTaken} orderId={e.orderId} receiverUsername={e.receiverUsername} receiverTel={e.receiverTel}/>
                     )
-                })}
-                </div>}
+                })
+                }
             </div>
            {showModal?<AddOrderBox setModal={setShowModal}/>:""}
     </Fragment>

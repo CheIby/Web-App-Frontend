@@ -6,17 +6,18 @@ import Login from './pages/Login';
 import Order from './pages/Order';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
+// import UserInfo from './pages/UserInfo';
 
 function App() {
   return (
-   <BrowserRouter>
-   
-    <Routes>
+   <BrowserRouter>    
+   <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/order' element={<Order/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      {/* <Route path='/test' element={<UserInfo/>}/> */}
     </Routes>
    </BrowserRouter>
   )

@@ -34,10 +34,10 @@ export const OrderList = () => {
             <div className='w-full h-20 bg-opacity-30 p-7 font-Kanit'>
                 <h2>Order list is currently empty.</h2>
             </div>:
-            <div className='bg-[#746f6f] w-full rounded-lg bg-opacity-30 flex flex-col items-center'>
+            <div className='w-full rounded-lg bg-opacity-30 flex flex-col items-center'>
                 {allOrder.map((e,key)=>{
                     return(
-                        <OrderCard key={key} img={e.restaurant} restaurant={e.restaurant} detail={e.detail} username={e.username} receiveLocation={e.receiveLocation} userId={e.userId} total={e.ifDoneScore} orderId={e.orderId}/>
+                        <OrderCard key={key} userTel={e.userTel} img={e.restaurant} restaurant={e.restaurant} detail={e.detail} username={e.username} receiveLocation={e.receiveLocation} userId={e.userId} total={e.ifDoneScore} orderId={e.orderId}/>
                     )})}
         </div>
             }

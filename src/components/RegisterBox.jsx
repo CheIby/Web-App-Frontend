@@ -13,6 +13,7 @@ export const RegisterBox = () => {
     const [passwordReCheck,setPasswordRecheck]=useState(false)
     const [firstName,setFirstName]=useState('')
     const [lastName,setLastName]=useState('')
+    const [tel,setTel]=useState('')
 
     const enterEvent=async(e)=>{
         if(e.key==='Enter'){
@@ -24,7 +25,7 @@ export const RegisterBox = () => {
         if(password !== reEnterPassword || password === ''){
             setPasswordRecheck(true)
             setCheckInvalid(false)
-        }else if(username.length === 0 || firstName.length===0 || lastName.length===0){
+        }else if(username.length === 0 || firstName.length===0 || lastName.length===0 || tel.length ===0){
             setCheckInvalid(true)
             setPasswordRecheck(false)
         }else{
@@ -32,8 +33,9 @@ export const RegisterBox = () => {
                 const res = await axios.post(`${process.env.REACT_APP_API}/Auth/Register`,{Username:username,
                     Password:password,
                     FirstName : firstName,
-                    LastName : lastName   })
-                console.log(res.status)
+                    LastName : lastName,
+                    Tel: tel})
+                console.log(res.status)     
                 if (res.status===200){
                     navigate('/login')
                     window.location.reload()
@@ -50,7 +52,7 @@ export const RegisterBox = () => {
     }
 
   return (
-    <div className='w-[80%] md:w-[60%] h-fit bg-white font-Kanit p-10 rounded-xl  min-w-[320px] max-w-[720px] relative'>
+    <div className='w-[80%] md:w-[60%] h-fit bg-white font-Kanit p-5 rounded-xl  min-w-[320px] max-w-[720px] relative'>
         <div className='w-[90%] h-[80%] m-auto'>
             <div className='text-center'>
                 <h1 className='font-semibold sm:text-xl text-lg'>Sign Up To จะกินไรก็สั่งมา</h1>
@@ -71,6 +73,10 @@ export const RegisterBox = () => {
                     </div>
                 </div>
                 <div className='my-3'> 
+                    <h1 className='font-semibold sm:text-xl text-lg'>Tel</h1>
+                    <input type="text" className='font-extralight w-full text-lg py-1 border-b-2 indent-2' placeholder='Tel' value={tel} onChange={e=>setTel(e.target.value)} onKeyDown={enterEvent}/>
+                </div>
+                <div className='my-3'> 
                     <h1 className='font-semibold sm:text-xl text-lg'>Password</h1>
                     <input type="password" className='font-extralight w-full text-lg py-1 border-b-2 indent-2' placeholder='Password' value={password} onChange={e=>setPassword(e.target.value)} onKeyDown={enterEvent}/>
                 </div>
@@ -79,7 +85,7 @@ export const RegisterBox = () => {
                     <input type="password" className='font-extralight w-full text-lg py-1 border-b-2 indent-2' placeholder='Re-Enter Password' value={reEnterPassword} onChange={e=>setReEnterPassword(e.target.value)} onKeyDown={enterEvent}/>
                 </div>
             </div>
-            {checkInvalid?<label className='p-2 text-[red] sm:text-xl text-lg'>*กรุณาใส่ Username, First Name และ Last Name</label>:''}
+            {checkInvalid?<label className='p-2 text-[red] sm:text-xl text-lg'>*กรุณาใส่ Username, First Name, Last Name และ Tel</label>:''}
             {passwordReCheck?<label className='p-2 text-[red] sm:text-xl text-lg'>*Password และ Re-Enter Password ไม่ตรงกัน</label>:''}
             <div className='mt-6 flex'>
                 <h1 className='font-semibold p-2 text-center bg-blac rounded-xl text-black cursor-pointer border-2 duration-300 border-black hover:text-white hover:bg-black w-full sm:text-xl text-lg' onClick={onsubmit}>Create Account</h1>

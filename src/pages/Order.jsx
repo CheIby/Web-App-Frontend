@@ -11,7 +11,7 @@ function Order() {
     <Fragment>
         <Navbar/>
         <div className='h-20'></div>
-        <div className='w-[70%] mx-auto'>
+        <div className='sm:w-[60%] w-[90%] mx-auto max-w-[1200px]'>
             <MyOrderListBox/>
             <OrderList/>
         </div>

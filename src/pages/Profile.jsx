@@ -8,7 +8,12 @@ function Profile() {
   return (
     <Fragment>
         <Navbar/>
-        <ProfileCard/>
+        <div className='h-screen bg-profileImg bg-no-repeat bg-cover '>
+          <div className='backdrop-blur-md bg-white/30'>
+            <ProfileCard/>
+          </div>
+        </div>
+        
         
     </Fragment>
   )

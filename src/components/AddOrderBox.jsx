@@ -60,12 +60,12 @@ export const AddOrderBox = (props) => {
             headers:{
               'Authorization':`Bearer ${token}`
           }
-          }).then(e=>window.location.reload())
+          })
           swalWithBootstrapButtons.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'
-          )
+          ).then(e=>window.location.reload())
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
@@ -81,7 +81,7 @@ export const AddOrderBox = (props) => {
 
   return (
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            <div className="relative my-6 mx-auto max-w-lg sm:w-[60%] w-[90%]">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
@@ -109,15 +109,15 @@ export const AddOrderBox = (props) => {
                     </select>
                 </div>
                 
-            <div className="max-h-[200px]  px-5 mt-3"> 
+            <div className="  px-5 mt-3"> 
             {
                 data.map((val,i)=>
                 <div key={i} className="mb-3">
                     <span>Food</span>
-                    <input name="food" value={val.food} onChange={(e)=>handleChange(e,i)} className="border-b-2 indent-2"/>
+                    <input name="food" value={val.food} onChange={(e)=>handleChange(e,i)} className="border-b-2 indent-2 w-full sm:w-[30%] md:w-[22%]"/>
                     <span>Amount</span>
-                    <input name="amount" type="number" value={val.amount} onChange={(e)=>handleChange(e,i)} className="border-b-2 indent-2"/>
-                    <button  onClick={()=>handleDelete(i)} className="ml-2 p-2 bg-red-600 rounded-lg text-white">Delete</button>
+                    <input name="amount" type="number" value={val.amount} onChange={(e)=>handleChange(e,i)} className="border-b-2 indent-2 w-full sm:w-[22%] md:w-[30%]"/>
+                    <button  onClick={()=>handleDelete(i)} className="sm:ml-2 mt-2 sm:mt-0 p-2 bg-red-600 rounded-lg w-full sm:w-fit text-white">Delete</button>
                 </div>
                 )
             }

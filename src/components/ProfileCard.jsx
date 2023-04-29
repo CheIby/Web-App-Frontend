@@ -29,23 +29,39 @@ export const ProfileCard = () => {
   return (
     <Fragment>
         <div className='flex justify-center items-center h-screen'>
-        {user?<div className='  bg-orange-600 w-[60%] h-[400px] rounded-lg flex p-5'>
-            <div>
-                {user?<img src={`${process.env.REACT_APP_BACKEND}/${user.userImg}`} alt="" className='rounded-[50%] h-40 w-40' />:""}
-                <button onClick={()=>setIsOpen(true)}>edit profile</button>
+        {user?<div className='  bg-black w-[80%] max-w-[500px] rounded-lg pt-28 px-20 relative text-white font-Kanit drop-shadow-2xl'>
+        {user?<img src={`${process.env.REACT_APP_BACKEND}/${user.userImg}`} alt="" className='rounded-[50%] h-40 w-40 absolute translate-x-1/2 right-[50%] top-[-70px] drop-shadow-2xl' />:""}
+            <div className='flex justify-center'>
+                <button onClick={()=>setIsOpen(true)} className=' p-2 text-black bg-white rounded-xl hover:bg-black hover:text-white border-white border-2 duration-150'>Edit Profile</button>
             </div>
             <div>
-                <div className=''>
-                    <h1>{user.username}</h1>
+            <div className='text-center text-xl mt-5'>
+                    <h2>{user.firstName} {user.lastName}</h2>
                 </div>
-                <div className=''>
-                    <h2>{user.firstName}</h2>
-                    <h2>{user.lastName}</h2>
+                <div className='text-center text-xl'>
+                    <h1>Username : {user.username}</h1>
+                </div>
+                <div className='text-center text-xl'>
+                    <h1>Tel : {user.tel}</h1>
+                </div>
+            </div>
+            <div className='flex justify-between text-xl mt-5 mb-10'>
+                <div className='w-fit text-center'>
+                    <h1>{user.score}</h1>
+                    <h1>Score</h1>
+                </div>
+                <div className='w-fit text-center'>
+                <h1>{user.success}</h1>
+                    <h1>Success</h1>
+                </div>
+                <div className='w-fit text-center'>
+                <h1>{user.failed}</h1>
+                    <h1>Failed</h1>
                 </div>
             </div>
         </div>:""}
         </div>
-        {isOpen===true?<EditProfileBox setIsOpen={setIsOpen} firstName={user.firstName} lastName={user.lastName}/>:""}
+        {isOpen===true?<EditProfileBox setIsOpen={setIsOpen} firstName={user.firstName} lastName={user.lastName} userImg={user.userImg} tel={user.tel}/>:""}
     </Fragment>
     
   )

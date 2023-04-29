@@ -14,6 +14,7 @@ module.exports = {
       },backgroundImage: {
         'loginImg': "linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('https://admin.adelaidecentralplaza.com.au/getattachment/b6307554-9cdc-4de2-9508-7251630e3f59/Food-web-tile.jpg?lang=en-AU&ext=.jpg')",
         'registerImg': "linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('https://img.freepik.com/free-vector/restaurant-mural-wallpaper_23-2148695092.jpg')",
+        'profileImg': "url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZCUyMHdhbGxwYXBlcnxlbnwwfHwwfHw%3D&w=1000&q=80')",
       }
     
     },

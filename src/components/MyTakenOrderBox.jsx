@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { getCookie } from 'cookies-next';
 import { OrderCard } from '../components/OrderCard'
 
+
 export const MyTakenOrderBox = (props) => {
   const token= getCookie('accessToken')
   const [allOrder,setAllOrder]=useState([])
@@ -27,7 +28,7 @@ export const MyTakenOrderBox = (props) => {
 
   return (
     <div className="justify-center items-center flex overflow-x-hidden bg-black bg-opacity-30 backdrop-blur-sm z-50 overflow-y-auto fixed inset-0 outline-none focus:outline-none">
-            <div className="relative w-[50%] my-6 mx-auto">
+            <div className="relative sm:w-[60%] w-[90%] my-6 mx-auto max-w-[1200px]">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
@@ -38,13 +39,16 @@ export const MyTakenOrderBox = (props) => {
                 </div>
                 {/*body*/}
                 <div className='h-[18rem] overflow-y-auto'>
+                  {allOrder.length!==0?
                   <div className=" p-6 flex flex-col items-center w-full ">
-                    {allOrder.map((e,key)=>{
-                      return(
-                        <OrderCard key={key} img={e.restaurant} restaurant={e.restaurant} detail={e.detail} receiveLocation={e.receiveLocation} userId={e.userId} username={e.username} total={e.ifDoneScore} status={e.isTaken} orderId={e.orderId}/>
-                      )
-                    })}
-                  </div>
+                  {allOrder.map((e,key)=>{
+                    return(
+                      <OrderCard key={key} img={e.restaurant} restaurant={e.restaurant} detail={e.detail} receiveLocation={e.receiveLocation} userTel={e.userTel} userId={e.userId} username={e.username} total={e.ifDoneScore} status={e.isTaken} orderId={e.orderId} receiverUsername={e.receiverUsername} receiverTel={e.receiverTel}/>
+                    )
+                  })}
+                </div>:<div className='flex justify-center items-center font-Kanit text-black h-[18rem] text-xl'>
+                  <h1>Your Delivery Order Is Empty</h1>
+                  </div>}
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
@@ -61,3 +65,4 @@ export const MyTakenOrderBox = (props) => {
           </div>
   )
 }
+
