@@ -180,7 +180,7 @@ export const OrderCard = (props) => {
             </div>
             <div className='w-full lg:w-[75%] relative flex'>
                 <div className='flex w-[100%]  text-white font-Kanit'>
-                    <div className='p-5 text-white font-Kanit'>
+                    <div className='p-5 text-white font-Kanit sm:text-base text-sm'>
                       <h1>{props.restaurant}</h1>
                       <h3>Order : {props.detail} </h3>
                       <h3>Receive Location : {props.receiveLocation}</h3>
@@ -189,7 +189,7 @@ export const OrderCard = (props) => {
                       <h1>Order by : {props.username}</h1>
                       <h1>Tel : {props.userTel}</h1>
                     </div>
-                {props.status===true?<div className='p-5'>
+                {props.status===true?<div className='p-5 sm:text-base text-sm'>
                       <h1>Delivery By : {props.receiverUsername}</h1>
                       <h1>Tel : {props.receiverTel}</h1>
                     </div>:""}

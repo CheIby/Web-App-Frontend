@@ -22,7 +22,6 @@ export const LoginBox = () => {
             const res = await axios.post(`${process.env.REACT_APP_API}/Auth/Login`,{Username:username,Password:password})
             if (res.status===200){
                 const token =  res.data.token
-                console.log(token)
                 setCookie("accessToken",token,{
                         maxAge:7*24*60*60,
                         path:'/',

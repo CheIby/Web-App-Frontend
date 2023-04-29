@@ -24,8 +24,6 @@ export const MyTakenOrderBox = (props) => {
     fetchData()
   },[])
 
-  console.log(allOrder)
-
   return (
     <div className="justify-center items-center flex overflow-x-hidden bg-black bg-opacity-30 backdrop-blur-sm z-50 overflow-y-auto fixed inset-0 outline-none focus:outline-none">
             <div className="relative sm:w-[60%] w-[90%] my-6 mx-auto max-w-[1200px]">

@@ -26,12 +26,12 @@ export const OrderList = () => {
 
   return (
     <Fragment>
-            <div className='flex justify-between items-center font-Kanit text-xl mb-6'>
+            <div className='flex justify-between items-center font-Kanit sm:text-2xl text-xl mb-6'>
                 <div>Order List</div>
             </div>
             <div className='flex flex-col items-center'>
             {allOrder.length===0?
-            <div className='w-full h-20 bg-opacity-30 p-7 font-Kanit'>
+            <div className='w-full h-20 bg-opacity-30 p-7 font-Kanit sm:text-xl text-base'>
                 <h2>Order list is currently empty.</h2>
             </div>:
             <div className='w-full rounded-lg bg-opacity-30 flex flex-col items-center'>

@@ -28,13 +28,13 @@ export const MyOrderListBox = () => {
 
   return (
     <Fragment>
-            <div className='flex justify-between items-center font-Kanit text-xl mt-6 mb-6'>
+            <div className='flex justify-between items-center font-Kanit sm:text-2xl text-xl mt-6 mb-6'>
                 <div>My Order List</div>
                 <div className='text-white bg-black rounded-lg p-2 hover:text-black hover:bg-white border-black border-2 duration-200 cursor-pointer' onClick={() => setShowModal(true)}>Place Order</div>
             </div>
             <div className='flex flex-col items-center mb-8'>
                 {allOrder.length===0?
-                <div className='w-full h-20 p-7 font-Kanit relative'>
+                <div className='w-full h-20 p-7 font-Kanit relative sm:text-xl text-base'>
                     <h2>Your order list is currently empty.</h2> 
                 </div>:
                 allOrder.map((e,key)=>{

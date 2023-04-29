@@ -34,15 +34,13 @@ export const RegisterBox = () => {
                     Password:password,
                     FirstName : firstName,
                     LastName : lastName,
-                    Tel: tel})
-                console.log(res.status)     
+                    Tel: tel})    
                 if (res.status===200){
                     navigate('/login')
                     window.location.reload()
                 }
                 
             }catch(err){
-                console.log(err.response.status)
                 if (err.response.status===400){
                     setCheckInvalid(true)
                     setPasswordRecheck(false)
