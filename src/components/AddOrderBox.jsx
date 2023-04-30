@@ -112,12 +112,12 @@ export const AddOrderBox = (props) => {
             <div className="  px-5 mt-3"> 
             {
                 data.map((val,i)=>
-                <div key={i} className="mb-3">
+                <div key={i} className="mb-3 md:flex w-full">
                     <span>Food</span>
-                    <input name="food" value={val.food} onChange={(e)=>handleChange(e,i)} className="border-b-2 indent-2 w-full sm:w-[30%] md:w-[22%]"/>
+                    <input name="food" value={val.food} onChange={(e)=>handleChange(e,i)} className="border-b-2 indent-2 md:w-fit min-[440px]:w-[49%] sm:w-[49%] w-[53%] flex-none sm:flex-1"/>
                     <span>Amount</span>
-                    <input name="amount" type="number" value={val.amount} onChange={(e)=>handleChange(e,i)} className="border-b-2 indent-2 w-full sm:w-[22%] md:w-[30%]"/>
-                    <button  onClick={()=>handleDelete(i)} className="sm:ml-2 mt-2 sm:mt-0 p-2 bg-red-600 rounded-lg w-full sm:w-fit text-white">Delete</button>
+                    <input name="amount" type="number" value={val.amount} onChange={(e)=>handleChange(e,i)} className="border-b-2 indent-2 md:w-[50px] min-[440px]:w-[80px] w-[50px] flex-none"/>
+                    <button  onClick={()=>handleDelete(i)} className="md:ml-2 mt-2 md:mt-0 p-2 bg-red-600 rounded-lg w-full md:w-fit text-white md:flex-none">Delete</button>
                 </div>
                 )
             }
